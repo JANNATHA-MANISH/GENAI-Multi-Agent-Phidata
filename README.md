@@ -197,16 +197,8 @@ After running the analysis, the following output will be available:
    | IoT Sensor Data         | https://www.kaggle.com/datasets/abc | Kaggle       | IoT, sensor data, maintenance   |
 
 ---
-
-## **Contributing**
-
-We welcome contributions to the **Market Research & Use Case Generator** project! If you'd like to contribute, please follow these steps:
-
-1. Fork the repository.
-2. Create a new branch (`git checkout -b feature-name`).
-3. Make your changes and commit them (`git commit -am 'Add new feature'`).
-4. Push to the branch (`git push origin feature-name`).
-5. Create a new pull request.
-
+DOCUMENTATION:
+https://drive.google.com/file/d/1uDMRBJfOdL4V-ElIY1H3XEIdzkkoVLWa/view?usp=sharing
+DEMO VIDEO:
+https://drive.google.com/file/d/16lrw72mziKges8VysBQLw4l6lOuqMlCP/view?usp=sharing
 ---
-
