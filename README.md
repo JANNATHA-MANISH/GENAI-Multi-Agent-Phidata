@@ -1,70 +1,79 @@
----
 
 # **Market Research & Use Case Generator**
 
-alt text
-
----
-
-## **Project Overview**
-
-The **Market Research & Use Case Generator** is a modular Python-based system designed to automate the following tasks:
-1. **Content Extraction**: Extracts text content from a given company URL using Tavily Extract.
-2. **AI-Powered Use Case Generation**: Uses Phidata's Gemini model to generate AI/ML use cases, introductory paragraphs, and additional resources based on the extracted content.
-3. **Dataset Collection**: Fetches relevant datasets from Kaggle based on dynamically generated keywords.
-
-The system leverages **Tavily Extract**, **Phidata's Gemini model**, and the **Kaggle API** to provide a streamlined workflow for market research, AI use case generation, and dataset retrieval.
+Welcome to the **Market Research & Use Case Generator**! This tool allows users to input a company's URL, extract its content, generate actionable AI/ML use cases from the content, and fetch relevant datasets from **Kaggle**. Powered by third-party APIs like **Tavily**, **Google Gemini**, and **Kaggle**, this system helps you identify AI opportunities and access valuable datasets for analysis.
 
 ---
 
 ## **Table of Contents**
 
-- [Project Overview](#project-overview)
-- [Architecture Diagram](#architecture-diagram)
-- [Data Storage Files](#data-storage-files)
-- [Sample Input and Output](#sample-input-and-output)
-- [Execution Instructions](#execution-instructions)
-- [Requirements](#requirements)
-- [License](#license)
+1. [Overview](#overview)
+2. [Features](#features)
+3. [System Architecture](#system-architecture)
+4. [Modules](#modules)
+5. [Getting Started](#getting-started)
+6. [Technologies Used](#technologies-used)
+7. [How to Use](#how-to-use)
+8. [Output](#output)
+9. [Contributing](#contributing)
+10. [License](#license)
 
 ---
 
-## **Architecture Diagram**
+## **Overview**
 
-Below is the architecture diagram of the system:
+The **Market Research & Use Case Generator** is designed to extract valuable insights from any company’s website. By analyzing the company’s content, the system generates relevant AI/ML use cases and identifies datasets related to those use cases. You can download these results in `.csv` and `.txt` formats.
 
+### **Key Features**
+- **URL Input**: Simply input a company's URL, and the system will handle the rest.
+- **Content Extraction**: Automatically extracts content from the given URL using the **Tavily API**.
+- **Use Case Generation**: Generates actionable AI/ML use cases and keywords using **Google Gemini**.
+- **Dataset Fetching**: Fetches relevant datasets from **Kaggle** based on generated keywords.
+- **Downloadable Results**: Get structured results in `.csv` and `.txt` formats for easy access.
+
+---
+
+## **System Architecture**
+
+The **Market Research & Use Case Generator** follows a modular architecture, comprising several interconnected components:
+
+1. **User Interface (UI)**: Built with **Streamlit**, the UI allows users to input URLs and interact with the application.
+2. **API Integrations**:
+    - **Tavily API**: Extracts content from the provided URL.
+    - **Google Gemini API**: Analyzes content and generates AI/ML use cases.
+    - **Kaggle API**: Retrieves relevant datasets for generated keywords.
+3. **Data Processing**: Aggregates use cases and datasets into a final output.
+4. **Output Handling**: Allows users to download results in `.csv` and `.txt` formats.
+
+### **Architecture Diagram**
 ```plaintext
-+-----------------------------------+
-| Market Research & Use Case Gen   |
-| Streamlit App                    |
-+-----------------------------------+
-              |
-              v
-+-----------------------------------+
-| Tavily Extract                   |
-| Extracts content from URL         |
-+-----------------------------------+
-              |
-              v
-+-----------------------------------+
-| Phidata's Gemini Model           |
-| Generates AI/ML use cases,       |
-| keywords, and additional insights|
-+-----------------------------------+
-              |
-              v
-+-----------------------------------+
-| Kaggle API                        |
-| Fetches datasets based on         |
-| generated keywords                |
-+-----------------------------------+
-              |
-              v
-+-----------------------------------+
-| Outputs:                          |
-| - usecases_txt.txt (Use Cases)    |
-| - datasets.csv (Datasets)         |
-+-----------------------------------+
++----------------------------+
+|      Streamlit UI           |
+|                            |
+|  1. Input URL               |
+|  2. Trigger Analysis        |
++----------------------------+
+            |
+            v
++----------------------------+     +-------------------------------+     +----------------------------+
+|     Tavily API             |---->|   Google Gemini API           |---->|    Kaggle API              |
+|   Extracts Content         |     |  Generates Use Cases          |     |  Fetches Datasets          |
+|   from the URL             |     |  and Keywords                |     |  based on Keywords         |
++----------------------------+     +-------------------------------+     +----------------------------+
+            |                                                      |
+            v                                                      v
++---------------------------------------------------------------+
+|       Data Aggregation                                        |
+|  Aggregates Use Cases & Datasets                              |
+|  Structures Data for Output                                   |
++---------------------------------------------------------------+
+            |
+            v
++----------------------------+
+| Output Handling            |
+|  1. Save to .csv and .txt  |
+|  2. Display Results        |
++----------------------------+
 ```
 
 ---
@@ -78,133 +87,126 @@ The following files are created by the system to store the output:
 | `usecases_txt.txt`  | Plain Text    | Contains AI-generated use cases derived from extracted content.  |
 | `datasets.csv`      | CSV           | Contains Kaggle datasets fetched based on generated keywords.    |
 
----
-
-## **Sample Input and Output**
-
-### **Sample Input**
-#### Company URL:
-```plaintext
-https://www.tatamotors.com/
-```
-
-### **Sample Output**
-
-#### `usecases_txt.txt`:
-```plaintext
-Use Case Title: Predictive Maintenance for Commercial Vehicles
-Objective/Use Case: Machine learning models to predict failures in commercial vehicle fleets using sensor data.
-AI Application: Predictive modeling using time series analysis and anomaly detection.
-Cross-Functional Benefit: Reduces downtime, optimizes maintenance schedules, and improves fleet efficiency.
-
-Use Case Title: Customer Sentiment Analysis for Automotive Brands
-Objective/Use Case: Analyze customer feedback from social media platforms to improve customer satisfaction.
-AI Application: Natural Language Processing (NLP) for sentiment analysis.
-Cross-Functional Benefit: Enhances customer experience and identifies pain points in real-time.
-```
-
-#### `datasets.csv`:
-```csv
-Use Case Title,Use Case Description,Keyword,Dataset Name,Dataset Link,Source
-Predictive Maintenance for Commercial Vehicles,"Machine learning models to predict failures in commercial vehicle fleets using sensor data.","predictive maintenance","Vehicle Sensor Data","https://www.kaggle.com/dataset-xyz","Kaggle"
-Customer Sentiment Analysis for Automotive Brands,"Analyze customer feedback from social media platforms to improve customer satisfaction.","sentiment analysis","Social Media Sentiment Dataset","https://www.kaggle.com/dataset-abc","Kaggle"
-```
 
 ---
 
-## **Execution Instructions**
+## **Modules**
 
-### 1. Clone the Repository
+### **1. User Interface (UI)**
+- **Streamlit** web interface for input and interaction.
+- User inputs a company URL, triggers the analysis, and views results.
 
-First, clone the repository to your local machine:
+### **2. Tavily API Integration**
+- Extracts content from the provided company URL.
+- The raw content is sent for further processing.
 
-```bash
-git clone https://github.com/your-username/market-research-use-case-generator.git
-cd market-research-use-case-generator
-```
+### **3. Google Gemini API Integration**
+- Generates AI/ML use cases and keywords based on the extracted content.
 
----
+### **4. Kaggle API Integration**
+- Fetches relevant datasets based on generated keywords.
 
-### 2. Set Up the Environment
-
-Create a virtual environment (optional but recommended):
-
-```bash
-python -m venv menv
-```
-
-Activate the virtual environment:
-- On Windows:
-  ```bash
-  menv\Scripts\activate
-  ```
-- On macOS/Linux:
-  ```bash
-  source menv/bin/activate
-  ```
+### **5. Data Aggregation**
+- Combines use cases and datasets into structured files for output.
 
 ---
 
-### 3. Install Dependencies
+## **Getting Started**
 
-Install the required Python dependencies:
+To get started with the **Market Research & Use Case Generator**, follow these steps:
 
-```bash
-pip install -r requirements.txt
-```
+### **Prerequisites**
 
----
+- Python 3.8 or higher
+- API keys for **Tavily**, **Google Gemini**, and **Kaggle**
 
-### 4. Configure API Keys
+### **Installation**
 
-Create a `.streamlit/secrets.toml` file in the root directory and add your API keys:
+1. Clone the repository:
 
-```toml
-[default]
-TAVILY_KEY = "your_tavily_api_key"
-GEMINI_KEY = "your_google_api_key"
-```
+   ```bash
+   git clone https://github.com/your-username/market-research-use-case-generator.git
+   cd market-research-use-case-generator
+   ```
 
-Replace `"your_tavily_api_key"` and `"your_google_api_key"` with your actual API keys.
+2. Install the required dependencies:
 
----
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-### 5. Run the Streamlit App
+3. Set up your API keys:
+   - Create a `.env` file and add your API keys for **Tavily**, **Google Gemini**, and **Kaggle**.
 
-To run the app:
+   Example `.env` file:
 
-```bash
-streamlit run market_research_agent.py
-```
+   ```env
+   TAVILY_API_KEY=your-tavily-api-key
+   GEMINI_API_KEY=your-gemini-api-key
+   KAGGLE_API_KEY=your-kaggle-api-key
+   ```
 
-Enter your company URL in the input field and click "Run Analysis."
+4. Run the application:
 
----
-
-## **Requirements**
-
-The following dependencies are required for this project:
-
-- Python 3.9 or later
-- Libraries listed in `requirements.txt`:
-  ```plaintext
-  phidata             
-  pandas            
-  kaggle             
-  streamlit         
-  tavily-python    
-  ```
-
-Install dependencies using:
-
-```bash
-pip install -r requirements.txt
-```
+   ```bash
+   streamlit run app.py
+   ```
 
 ---
 
-## **License**
+## **Technologies Used**
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+- **Streamlit** – For building the interactive web interface.
+- **Tavily API** – For extracting content from websites.
+- **Google Gemini API** – For generating AI/ML use cases.
+- **Kaggle API** – For fetching relevant datasets.
+- **Python 3.x** – The primary programming language.
+- **Pandas** – For data manipulation and structuring.
+- **dotenv** – For environment variable management.
 
 ---
+
+## **How to Use**
+
+1. **Input a URL**: Enter the URL of a company’s website in the provided text field.
+2. **Trigger Analysis**: Click the "Start Analysis" button to begin the process.
+3. **View Results**: Once the process is complete, view the generated use cases and related datasets.
+4. **Download Files**: Download the results as `.csv` and `.txt` files for further analysis.
+
+---
+
+## **Output**
+
+After running the analysis, the following output will be available:
+
+- **Use Cases**: A list of AI/ML use cases related to the company’s website, with detailed descriptions and potential applications.
+- **Datasets**: A list of datasets related to the generated use cases, fetched from Kaggle.
+
+### **Example Output Files**
+- **use_cases.txt**:
+   ```txt
+   Use Case 1: Predictive Maintenance in Manufacturing
+   Description: Using machine learning to predict when machinery will fail based on historical data.
+   Keywords: predictive maintenance, IoT, machine learning
+   ```
+
+- **datasets.csv**:
+   | Dataset Name            | Dataset Link                        | Source       | Keywords                        |
+   |-------------------------|-------------------------------------|--------------|---------------------------------|
+   | Predictive Maintenance   | https://www.kaggle.com/datasets/xyz | Kaggle       | predictive maintenance, IoT     |
+   | IoT Sensor Data         | https://www.kaggle.com/datasets/abc | Kaggle       | IoT, sensor data, maintenance   |
+
+---
+
+## **Contributing**
+
+We welcome contributions to the **Market Research & Use Case Generator** project! If you'd like to contribute, please follow these steps:
+
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature-name`).
+3. Make your changes and commit them (`git commit -am 'Add new feature'`).
+4. Push to the branch (`git push origin feature-name`).
+5. Create a new pull request.
+
+---
+
