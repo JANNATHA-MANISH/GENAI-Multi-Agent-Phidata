@@ -197,8 +197,98 @@ After running the analysis, the following output will be available:
    | IoT Sensor Data         | https://www.kaggle.com/datasets/abc | Kaggle       | IoT, sensor data, maintenance   |
 
 ---
-DOCUMENTATION:
+
+## **Execution Instructions**
+
+### 1. Clone the Repository
+
+To get started, clone the repository to your local machine:
+
+```bash
+git clone https://github.com/your-username/market-research-use-case-generator.git
+cd market-research-use-case-generator
+```
+
+---
+
+### 2. Set Up the Environment
+
+(Optional but recommended) Create a virtual environment for the project:
+
+```bash
+python -m venv menv
+```
+
+Activate the virtual environment:
+- **On Windows**:
+  ```bash
+  menv\Scripts\activate
+  ```
+- **On macOS/Linux**:
+  ```bash
+  source menv/bin/activate
+  ```
+
+---
+
+### 3. Install Dependencies
+
+Install all necessary dependencies by running:
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+### 4. Configure API Keys
+
+To interact with the APIs, you need to configure your API keys. Create a `.streamlit/secrets.toml` file in the root directory and add your keys:
+
+```toml
+[default]
+TAVILY_KEY = "your_tavily_api_key"
+GEMINI_KEY = "your_google_api_key"
+```
+
+Be sure to replace `"your_tavily_api_key"` and `"your_google_api_key"` with your actual keys.
+
+---
+
+### 5. Run the Streamlit App
+
+Finally, to launch the app:
+
+```bash
+streamlit run market_research_agent.py
+```
+
+Once the app is running, enter your company URL and click **"Run Analysis"** to start generating use cases and fetching datasets.
+
+---
+
+## **Requirements**
+
+This project requires Python 3.9 or higher, along with the following dependencies:
+
+```plaintext
+phidat
+pandas
+kaggle
+streamlit
+tavily-python
+```
+
+To install the dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+### **DOCUMENTATION**:
 https://drive.google.com/file/d/1uDMRBJfOdL4V-ElIY1H3XEIdzkkoVLWa/view?usp=sharing
-DEMO VIDEO:
+###**DEMO VIDEO**:
 https://drive.google.com/file/d/16lrw72mziKges8VysBQLw4l6lOuqMlCP/view?usp=sharing
 ---
