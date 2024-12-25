@@ -1,0 +1,59 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+menv/
+venv/
+.env/
+*.env
+
+# Secrets and sensitive information
+.streamlit/secrets.toml
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Output files
+usecases_txt.txt
+datasets.csv
+
+# Logs and debug files
+*.log
+*.out
+*.err
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# IDE-specific files
+.vscode/
+.idea/
+*.code-workspace
+
+# Python egg files
+*.egg
+*.egg-info/
+dist/
+build/
+
+# Cache files and folders
+*.cache
+*.pytest_cache/
+
+# Temporary and backup files
+*.bak
+*.swp
+*.tmp
+
+# Kaggle API credentials (if applicable)
+kaggle.json
+
+# Streamlit cache directories
+.streamlit/cache/
+.streamlit/static/
+
+# Miscellaneous
+node_modules/
