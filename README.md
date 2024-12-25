@@ -287,8 +287,12 @@ pip install -r requirements.txt
 
 ---
 
-### **DOCUMENTATION**:
+## **DOCUMENTATION :**
+---
 https://drive.google.com/file/d/1uDMRBJfOdL4V-ElIY1H3XEIdzkkoVLWa/view?usp=sharing
-###**DEMO VIDEO**:
+
+## **DEMO VIDEO :**
+---
 https://drive.google.com/file/d/16lrw72mziKges8VysBQLw4l6lOuqMlCP/view?usp=sharing
+
 ---
