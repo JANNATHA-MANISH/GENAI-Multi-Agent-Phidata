@@ -62,11 +62,11 @@ The **Market Research & Use Case Generator** follows a modular architecture, com
 +----------------------------+     +-------------------------------+     +----------------------------+
             |                                                      |
             v                                                      v
-+---------------------------------------------------------------+
-|       Data Aggregation                                        |
-|  Aggregates Use Cases & Datasets                              |
-|  Structures Data for Output                                   |
-+---------------------------------------------------------------+
++----------------------------------------------------------------------------+
+|       Data Aggregation                                                     |
+|  Aggregates Use Cases & Datasets                                           |
+|  Structures Data for Output                                                |
++----------------------------------------------------------------------------+
             |
             v
 +----------------------------+
@@ -125,7 +125,7 @@ To get started with the **Market Research & Use Case Generator**, follow these s
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/market-research-use-case-generator.git
+   git clone https://github.com/JANNATHA-MANISH/GENAI-Multi-Agent-Phidata
    cd market-research-use-case-generator
    ```
 
@@ -185,9 +185,10 @@ After running the analysis, the following output will be available:
 ### **Example Output Files**
 - **use_cases.txt**:
    ```txt
-   Use Case 1: Predictive Maintenance in Manufacturing
-   Description: Using machine learning to predict when machinery will fail based on historical data.
-   Keywords: predictive maintenance, IoT, machine learning
+   Use Case Title: Predictive Maintenance for Commercial Vehicles
+   Objective/Use Case: To reduce downtime and maintenance costs for Tata Motors'......
+   AI Application:  Machine Learning .
+   Cross-Functional Benefit:  Reduced maintenance costs in the operations department....
    ```
 
 - **datasets.csv**:
