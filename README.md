@@ -5,6 +5,10 @@ Welcome to the **Market Research & Use Case Generator**! This tool allows users 
 
 ---
 
+![alt text](system_arch/AIPLANET.gif)
+
+---
+
 ## **Table of Contents**
 
 1. [Overview](#overview)
